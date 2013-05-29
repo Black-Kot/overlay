@@ -1,0 +1,248 @@
+diff --git a/gui/Makefile.am b/gui/Makefile.am
+index 2df9125..c938085 100644
+--- a/gui/Makefile.am
++++ b/gui/Makefile.am
+@@ -118,7 +118,8 @@ gdmchooser_LDADD = \
+ 	$(PANGO_LIBS)		\
+ 	$(GDK_LIBS)		\
+ 	$(GDKPIXBUF_LIBS)	\
+-	$(top_builddir)/common/libgdmcommon.a \
++		$(top_builddir)/common/libgdmcommon.a -lXau\
++	-lXau			\
+ 	$(X_EXTRA_LIBS)		\
+ 	$(XINERAMA_LIBS)	\
+ 	$(X_LIBS)		\
+@@ -139,7 +140,8 @@ gdmlogin_LDADD = \
+ 	$(GDK_LIBS)		\
+ 	$(PANGO_LIBS)		\
+ 	$(GDKPIXBUF_LIBS)	\
+-	$(top_builddir)/common/libgdmcommon.a \
++		$(top_builddir)/common/libgdmcommon.a -lXau\
++	-lXau			\
+ 	$(X_EXTRA_LIBS)		\
+ 	$(XINERAMA_LIBS)	\
+ 	$(X_LIBS)		\
+@@ -165,7 +167,8 @@ gdmsetup_LDADD = \
+ 	$(EXTRA_SOCKET_LIB)	\
+ 	$(EXTRA_NSL_LIB)	\
+ 	$(LIBGNOMEUI_LIBS)	\
+-	$(top_builddir)/common/libgdmcommon.a \
++		$(top_builddir)/common/libgdmcommon.a -lXau\
++	-lXau			\
+ 	$(X_LIBS)		\
+ 	-lXau			\
+ 	-lX11			\
+@@ -185,7 +188,8 @@ gdmphotosetup_LDADD = \
+ 	$(EXTRA_NSL_LIB)	\
+ 	-lX11			\
+ 	-lfontconfig		\
+-	$(top_builddir)/common/libgdmcommon.a \
++		$(top_builddir)/common/libgdmcommon.a -lXau\
++	-lXau			\
+ 	$(NULL)
+ 
+ gdmXnestchooser_LDADD = \
+@@ -201,7 +205,8 @@ gdmXnestchooser_LDADD = \
+ 	-lXau			\
+ 	-lX11			\
+ 	-lfontconfig		\
+-	$(top_builddir)/common/libgdmcommon.a \
++		$(top_builddir)/common/libgdmcommon.a -lXau\
++	-lXau			\
+ 	$(NULL)
+ 
+ gdmflexiserver_LDADD = \
+@@ -211,7 +216,8 @@ gdmflexiserver_LDADD = \
+ 	$(GLIB_LIBS)		\
+ 	$(GOBJECT_LIBS)		\
+ 	$(GDK_LIBS)		\
+-	$(top_builddir)/common/libgdmcommon.a \
++		$(top_builddir)/common/libgdmcommon.a -lXau\
++	-lXau			\
+ 	$(EXTRA_SOCKET_LIB)	\
+ 	$(EXTRA_NSL_LIB)	\
+ 	$(X_LIBS)		\
+@@ -227,7 +233,8 @@ gdmdynamic_LDADD = 		\
+ 	$(GLIB_LIBS) 		\
+ 	$(GOBJECT_LIBS) 	\
+ 	$(GDK_LIBS) 		\
+-	$(top_builddir)/common/libgdmcommon.a \
++		$(top_builddir)/common/libgdmcommon.a -lXau\
++	-lXau			\
+ 	$(EXTRA_SOCKET_LIB)	\
+ 	$(EXTRA_NSL_LIB)	\
+ 	$(X_LIBS)		\
+diff --git a/gui/Makefile.in b/gui/Makefile.in
+index c6a29d2..bde6c1a 100644
+--- a/gui/Makefile.in
++++ b/gui/Makefile.in
+@@ -83,7 +83,8 @@ gdmXnestchooser_DEPENDENCIES = libgdmcommon.a $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+-	$(am__DEPENDENCIES_1) $(top_builddir)/common/libgdmcommon.a \
++	$(am__DEPENDENCIES_1) 	$(top_builddir)/common/libgdmcommon.a -lXau\
++	-lXau			\
+ 	$(am__DEPENDENCIES_1)
+ am_gdmchooser_OBJECTS = gdmchooser.$(OBJEXT) misc.$(OBJEXT) \
+ 	$(am__objects_1)
+@@ -92,7 +93,8 @@ gdmchooser_DEPENDENCIES = $(am__DEPENDENCIES_1) libgdmwm.a \
+ 	libgdmcommon.a $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+-	$(am__DEPENDENCIES_1) $(top_builddir)/common/libgdmcommon.a \
++	$(am__DEPENDENCIES_1) 	$(top_builddir)/common/libgdmcommon.a -lXau\
++	-lXau			\
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1)
+@@ -104,7 +106,7 @@ gdmdynamic_OBJECTS = $(am_gdmdynamic_OBJECTS)
+ gdmdynamic_DEPENDENCIES = libgdmcommon.a $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+-	$(top_builddir)/common/libgdmcommon.a $(am__DEPENDENCIES_1) \
++	$(top_builddir)/common/libgdmcommon.a -lXau$(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1)
+ am_gdmflexiserver_OBJECTS = gdmflexiserver.$(OBJEXT)
+@@ -112,7 +114,7 @@ gdmflexiserver_OBJECTS = $(am_gdmflexiserver_OBJECTS)
+ gdmflexiserver_DEPENDENCIES = libgdmcommon.a $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+-	$(top_builddir)/common/libgdmcommon.a $(am__DEPENDENCIES_1) \
++	$(top_builddir)/common/libgdmcommon.a -lXau$(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1)
+ am_gdmlogin_OBJECTS = gdmlogin.$(OBJEXT)
+@@ -122,7 +124,7 @@ gdmlogin_DEPENDENCIES = $(am__DEPENDENCIES_1) libgdmwm.a \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+-	$(top_builddir)/common/libgdmcommon.a $(am__DEPENDENCIES_1) \
++	$(top_builddir)/common/libgdmcommon.a -lXau$(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1)
+ am_gdmphotosetup_OBJECTS = gdmphotosetup.$(OBJEXT)
+@@ -132,7 +134,7 @@ gdmphotosetup_DEPENDENCIES = libgdmcommon.a $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+-	$(top_builddir)/common/libgdmcommon.a $(am__DEPENDENCIES_1)
++	$(top_builddir)/common/libgdmcommon.a -lXau$(am__DEPENDENCIES_1)
+ am_gdmsetup_OBJECTS = gdmsetup-gdmsession.$(OBJEXT) \
+ 	gdmsetup-gdmuser.$(OBJEXT) gdmsetup-gdmsetup.$(OBJEXT)
+ gdmsetup_OBJECTS = $(am_gdmsetup_OBJECTS)
+@@ -141,7 +143,7 @@ gdmsetup_DEPENDENCIES = libgdmcommon.a $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+-	$(top_builddir)/common/libgdmcommon.a $(am__DEPENDENCIES_1) \
++	$(top_builddir)/common/libgdmcommon.a -lXau$(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1)
+ gdmsetup_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+ 	--mode=link $(CCLD) $(gdmsetup_CFLAGS) $(CFLAGS) \
+@@ -528,7 +530,8 @@ gdmchooser_LDADD = \
+ 	$(PANGO_LIBS)		\
+ 	$(GDK_LIBS)		\
+ 	$(GDKPIXBUF_LIBS)	\
+-	$(top_builddir)/common/libgdmcommon.a \
++		$(top_builddir)/common/libgdmcommon.a -lXau\
++	-lXau			\
+ 	$(X_EXTRA_LIBS)		\
+ 	$(XINERAMA_LIBS)	\
+ 	$(X_LIBS)		\
+@@ -549,7 +552,8 @@ gdmlogin_LDADD = \
+ 	$(GDK_LIBS)		\
+ 	$(PANGO_LIBS)		\
+ 	$(GDKPIXBUF_LIBS)	\
+-	$(top_builddir)/common/libgdmcommon.a \
++		$(top_builddir)/common/libgdmcommon.a -lXau\
++	-lXau			\
+ 	$(X_EXTRA_LIBS)		\
+ 	$(XINERAMA_LIBS)	\
+ 	$(X_LIBS)		\
+@@ -576,7 +580,8 @@ gdmsetup_LDADD = \
+ 	$(EXTRA_SOCKET_LIB)	\
+ 	$(EXTRA_NSL_LIB)	\
+ 	$(LIBGNOMEUI_LIBS)	\
+-	$(top_builddir)/common/libgdmcommon.a \
++		$(top_builddir)/common/libgdmcommon.a -lXau\
++	-lXau			\
+ 	$(X_LIBS)		\
+ 	-lXau			\
+ 	-lX11			\
+@@ -596,7 +601,8 @@ gdmphotosetup_LDADD = \
+ 	$(EXTRA_NSL_LIB)	\
+ 	-lX11			\
+ 	-lfontconfig		\
+-	$(top_builddir)/common/libgdmcommon.a \
++		$(top_builddir)/common/libgdmcommon.a -lXau\
++	-lXau			\
+ 	$(NULL)
+ 
+ gdmXnestchooser_LDADD = \
+@@ -612,7 +618,8 @@ gdmXnestchooser_LDADD = \
+ 	-lXau			\
+ 	-lX11			\
+ 	-lfontconfig		\
+-	$(top_builddir)/common/libgdmcommon.a \
++		$(top_builddir)/common/libgdmcommon.a -lXau\
++	-lXau			\
+ 	$(NULL)
+ 
+ gdmflexiserver_LDADD = \
+@@ -622,7 +629,8 @@ gdmflexiserver_LDADD = \
+ 	$(GLIB_LIBS)		\
+ 	$(GOBJECT_LIBS)		\
+ 	$(GDK_LIBS)		\
+-	$(top_builddir)/common/libgdmcommon.a \
++		$(top_builddir)/common/libgdmcommon.a -lXau\
++	-lXau			\
+ 	$(EXTRA_SOCKET_LIB)	\
+ 	$(EXTRA_NSL_LIB)	\
+ 	$(X_LIBS)		\
+@@ -638,7 +646,8 @@ gdmdynamic_LDADD = \
+ 	$(GLIB_LIBS) 		\
+ 	$(GOBJECT_LIBS) 	\
+ 	$(GDK_LIBS) 		\
+-	$(top_builddir)/common/libgdmcommon.a \
++		$(top_builddir)/common/libgdmcommon.a -lXau\
++	-lXau			\
+ 	$(EXTRA_SOCKET_LIB)	\
+ 	$(EXTRA_NSL_LIB)	\
+ 	$(X_LIBS)		\
+diff --git a/gui/greeter/Makefile.am b/gui/greeter/Makefile.am
+index cd35314..1d2b29f 100644
+--- a/gui/greeter/Makefile.am
++++ b/gui/greeter/Makefile.am
+@@ -80,7 +80,7 @@ gdmgreeter_LDADD = \
+ 	-lgdmwm			\
+ 	-lgdmcommon		\
+ 	-lgdmgreeter		\
+-	$(top_builddir)/common/libgdmcommon.a \
++	$(top_builddir)/common/libgdmcommon.a -lXau\
+ 	$(GLIB_LIBS)		\
+ 	$(GOBJECT_LIBS)		\
+ 	$(PANGO_LIBS)		\
+diff --git a/gui/greeter/Makefile.in b/gui/greeter/Makefile.in
+index 4fd05e1..34fbcfd 100644
+--- a/gui/greeter/Makefile.in
++++ b/gui/greeter/Makefile.in
+@@ -59,7 +59,7 @@ am_gdmgreeter_OBJECTS = greeter.$(OBJEXT) \
+ gdmgreeter_OBJECTS = $(am_gdmgreeter_OBJECTS)
+ am__DEPENDENCIES_1 =
+ gdmgreeter_DEPENDENCIES = $(am__DEPENDENCIES_1) \
+-	$(top_builddir)/common/libgdmcommon.a $(am__DEPENDENCIES_1) \
++	$(top_builddir)/common/libgdmcommon.a -lXau$(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+@@ -394,7 +394,7 @@ gdmgreeter_LDADD = \
+ 	-lgdmwm			\
+ 	-lgdmcommon		\
+ 	-lgdmgreeter		\
+-	$(top_builddir)/common/libgdmcommon.a \
++	$(top_builddir)/common/libgdmcommon.a -lXau\
+ 	$(GLIB_LIBS)		\
+ 	$(GOBJECT_LIBS)		\
+ 	$(PANGO_LIBS)		\

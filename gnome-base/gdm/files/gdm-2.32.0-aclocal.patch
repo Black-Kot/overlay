@@ -1,0 +1,13 @@
+diff --git a/configure.ac b/configure.ac
+index e59afeb..4a1eb10 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -22,7 +22,7 @@ AC_HEADER_STDC
+ 
+ AC_SUBST(VERSION)
+ 
+-AM_CONFIG_HEADER(config.h)
++AC_CONFIG_HEADERS(config.h)
+ AC_CONFIG_MACRO_DIR([m4])
+ 
+ IT_PROG_INTLTOOL([0.40.0])

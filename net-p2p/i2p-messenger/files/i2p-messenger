@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd /usr/share/i2pmessenger
+./I2P-Messenger
