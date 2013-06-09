@@ -1,0 +1,51 @@
+# Copyright 1999-2013 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/jdk/jdk-1.6.0.ebuild,v 1.24 2013/03/10 11:01:08 sera Exp $
+
+DESCRIPTION="Virtual for Java Development Kit (JDK)"
+HOMEPAGE=""
+SRC_URI=""
+
+LICENSE=""
+SLOT="1.6"
+KEYWORDS="amd64 ppc ppc64 x86 ~ppc-aix ~x86-fbsd ~x64-freebsd ~hppa-hpux ~ia64-hpux ~amd64-linux ~x86-linux ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris ~x86-winnt"
+IUSE=""
+
+# The keyword voodoo below is needed so that ppc(64) users will
+# get a masked license warning for ibm-jdk-bin
+# instead of (not useful) missing keyword warning for sun-jdk
+# see #287615
+# note that this "voodoo" is pretty annoying for Prefix, and that we didn't
+# invent it in the first place!
+
+COMMON_INC=""
+
+# icedtea-bin-1* is old versioning scheme of icedtea-bin-6*
+X86_OPTS="|| (
+		=dev-java/sun-jdk-1.6.0*
+		${COMMON_INC}
+	)"
+
+X86_PREFIX_OPTS="|| (
+		=dev-java/sun-jdk-1.6.0*
+		${COMMON_INC}
+	)"
+
+PPC_OPTS=""
+
+RDEPEND="|| (
+		amd64? ( ${X86_OPTS} )
+		x86? ( ${X86_OPTS} )
+		ppc? ( ${PPC_OPTS} )
+		ppc64? ( ${PPC_OPTS} )
+		amd64-linux? ( ${X86_PREFIX_OPTS} )
+		x86-linux? ( ${X86_PREFIX_OPTS} )
+		x64-solaris? ( ${X86_PREFIX_OPTS} )
+		x86-solaris? ( ${X86_PREFIX_OPTS} )
+		sparc-solaris? ( ${X86_PREFIX_OPTS} )
+		sparc64-solaris? ( ${X86_PREFIX_OPTS} )
+		!amd64? ( !x86? ( !ppc? ( !ppc64? ( !amd64-linux? ( !x86-linux? ( !x64-solaris? ( !x86-solaris? ( !sparc-solaris? ( !sparc64-solaris? (
+			${COMMON_OPTS}
+		) ) ) ) ) ) ) ) ) )
+	)"
+DEPEND=""
