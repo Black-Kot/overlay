@@ -22,7 +22,7 @@ SLOT="0"
 IUSE="debug elibc_glibc ncurses pam newnet prefix selinux static-libs unicode
 	kernel_linux kernel_FreeBSD"
 
-COMMON_DEPEND="virtual/init
+COMMON_DEPEND=">=sys-apps/sysvinit-2.86-r6
 	kernel_FreeBSD? ( || ( >=sys-freebsd/freebsd-ubin-9.0_rc sys-process/fuser-bsd ) )
 	elibc_glibc? ( >=sys-libs/glibc-2.5 )
 	pam? ( sys-auth/pambase )
