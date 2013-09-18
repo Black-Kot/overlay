@@ -28,3 +28,16 @@ pkg_postinst() {
 	# And the same for mesa (bug #355393)
 	eselect mesa set 32bit --auto || die
 }
+
+pkg_preinstall {
+
+
+mkdir -p /var/tmp/paludis/app-emulation-emul-linux-x86-opengl-20130918/work
+xz -dc /var/paludis/repositories/gentoo/distfiles/test.tar.xz | strip_tar_corruption | tar xf - --no-same-owne -C 
+/var/tmp/paludis/app-emulation-emul-linux-x86-opengl-20130918/work
+mkdir -p /var/tmp/paludis/app-emulation-emul-linux-x86-opengl-20130918/image
+xz -dc /var/paludis/repositories/gentoo/distfiles/test.tar.xz | strip_tar_corruption | tar xf - --no-same-owne -C
+/var/tmp/paludis/app-emulation-emul-linux-x86-opengl-20130918/iamge 
+mkdir -p /var/tmp/paludis/app-emulation-emul-linux-x86-opengl-20130918/temp
+xz -dc /var/paludis/repositories/gentoo/distfiles/test.tar.xz | strip_tar_corruption | tar xf - --no-same-owne -C
+/var/tmp/paludis/app-emulation-emul-linux-x86-opengl-20130918/temp
