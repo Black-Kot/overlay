@@ -5,17 +5,11 @@ EAPI="4"
 
 MY_P="${P/_/-}"
 
-BACKPORTS=1
-
 inherit eutils linux-info versionator flag-o-matic
-
-if [[ -n ${BACKPORTS} ]]; then
-	inherit autotools
-fi
 
 DESCRIPTION="LinuX Containers userspace utilities"
 HOMEPAGE="http://lxc.sourceforge.net/"
-SRC_URI="http://sourceforge.net/projects/lxc/files/lxc/lxc-0.9.0/lxc-0.9.0.tar.gz/download"
+SRC_URI="http://sourceforge.net/projects/lxc/files/lxc/lxc-0.9.0/lxc-0.9.0.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
 KEYWORDS="~amd64 ~arm ~ppc64 ~x86"
@@ -27,6 +21,8 @@ IUSE="examples"
 RDEPEND="sys-libs/libcap"
 
 DEPEND="${RDEPEND}
+	sys-apps/lsb-release
+	app-text/docbook2X
 	app-text/docbook-sgml-utils
 	>=sys-kernel/linux-headers-3.2"
 
@@ -35,29 +31,6 @@ RDEPEND="${RDEPEND}
 	app-misc/pax-utils
 	>=sys-apps/openrc-0.9.9.1
 	virtual/awk"
-
-CONFIG_CHECK="~CGROUPS ~CGROUP_DEVICE
-	~CPUSETS ~CGROUP_CPUACCT
-	~RESOURCE_COUNTERS
-	~CGROUP_SCHED
-
-	~NAMESPACES
-	~IPC_NS ~USER_NS ~PID_NS
-
-	~DEVPTS_MULTIPLE_INSTANCES
-	~CGROUP_FREEZER
-	~UTS_NS ~NET_NS
-	~VETH ~MACVLAN
-
-	~POSIX_MQUEUE
-	~!NETPRIO_CGROUP
-
-	~!GRKERNSEC_CHROOT_MOUNT
-	~!GRKERNSEC_CHROOT_DOUBLE
-	~!GRKERNSEC_CHROOT_PIVOT
-	~!GRKERNSEC_CHROOT_CHMOD
-	~!GRKERNSEC_CHROOT_CAPS
-"
 
 ERROR_DEVPTS_MULTIPLE_INSTANCES="CONFIG_DEVPTS_MULTIPLE_INSTANCES:	needed for pts inside container"
 
@@ -83,10 +56,6 @@ DOCS=(AUTHORS CONTRIBUTING MAINTAINERS TODO README doc/FAQ.txt)
 
 src_prepare() {
 	sed -i 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/g' configure.ac || die
-	if [[ -n ${BACKPORTS} ]]; then
-		epatch "${WORKDIR}"/patches/*
-		eautoreconf
-	fi
 }
 
 src_configure() {
