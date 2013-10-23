@@ -67,16 +67,12 @@ src_configure() {
 		--docdir=/usr/share/doc/${PF} \
 		--with-config-path=/etc/lxc	\
 		--with-rootfs-path=/usr/lib/lxc/rootfs \
-		--enable-doc \
 		--disable-apparmor \
 		$(use_enable examples)
 }
 
 src_install() {
 	default
-
-	rm -r "${D}"/usr/sbin/lxc-setcap \
-		|| die "unable to remove lxc-setcap"
 
 	keepdir /etc/lxc /usr/lib/lxc/rootfs
 
