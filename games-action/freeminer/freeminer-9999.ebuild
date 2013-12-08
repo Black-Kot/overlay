@@ -11,7 +11,7 @@ EGIT_REPO_URI="https://github.com/freeminer/freeminer.git"
 
 LICENSE="LGPL-2.1+ CC-BY-SA-3.0"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="x86 amd64"
 IUSE="+curl dedicated leveldb nls +server +sound +truetype"
 
 RDEPEND="dev-db/sqlite:3
