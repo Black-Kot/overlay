@@ -84,8 +84,8 @@ src_install() {
 	cmake-utils_src_install
 
 	if use server || use dedicated ; then
-		newinitd "${FILESDIR}"/minetestserver.initd minetest-server
-		newconfd "${T}"/minetestserver.confd minetest-server
+		newinitd "${FILESDIR}"/freeminerserver.initd freeminer-server
+		newconfd "${T}"/freeminerserver.confd freeminer-server
 	fi
 
 	prepgamesdirs
@@ -103,10 +103,10 @@ pkg_postinst() {
 	if ! use dedicated ; then
 		elog
 		elog "optional dependencies:"
-		elog "	games-action/minetest_game (official mod)"
-		elog "	games-action/minetest_common (official mod)"
-		elog "	games-action/minetest_build (official mod)"
-		elog "	games-action/minetest_survival (official mod)"
+		elog "	games-action/freeminer_game (official mod)"
+		elog "	games-action/freeminer_common (official mod)"
+		elog "	games-action/freeminer_build (official mod)"
+		elog "	games-action/freeminer_survival (official mod)"
 		elog
 	fi
 
