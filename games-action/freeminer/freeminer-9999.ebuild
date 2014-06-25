@@ -8,6 +8,7 @@ inherit eutils cmake-utils git-2 gnome2-utils vcs-snapshot user games
 DESCRIPTION="An InfiniMiner/Minecraft inspired game"
 HOMEPAGE="http://freeminer.org/"
 EGIT_REPO_URI="https://github.com/freeminer/freeminer.git"
+CMAKE_BUILD_TYPE=Release
 
 LICENSE="LGPL-2.1+ CC-BY-SA-3.0"
 SLOT="0"
@@ -33,7 +34,7 @@ RDEPEND="dev-db/sqlite:3
 		)
 		truetype? ( media-libs/freetype:2 )
 	)
-	leveldb? ( dev-libs/leveldb )
+	leveldb? ( dev-libs/leveldb[snappy] )
 	nls? ( virtual/libintl )"
 DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )"
