@@ -54,16 +54,6 @@ src_prepare() {
 	# Do not crash in gconf_entry_set_value() when entry pointer is NULL, upstream #631985
 	epatch "${FILESDIR}/${PN}-2.28.0-entry-set-value-sigsegv.patch"
 
-	# From 'master'
-	# mconvert: enable recursive scheme lookup and fix a crasher
-	epatch "${FILESDIR}/${P}-mconvert-crasher.patch"
-
-	# dbus: Don't spew to console when unable to connect to dbus daemon
-	epatch "${FILESDIR}/${P}-spew-console-error.patch"
-
-	# gsettings-data-convert: Warn (and fix) invalid schema paths
-	epatch "${FILESDIR}/${P}-gsettings-data-convert-paths.patch"
-
 	gnome2_src_prepare
 }
 
