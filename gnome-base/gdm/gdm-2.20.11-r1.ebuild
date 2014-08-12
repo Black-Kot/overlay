@@ -68,6 +68,7 @@ DEPEND="${RDEPEND}
 
 pkg_setup() {
 	DOCS="AUTHORS ChangeLog NEWS README TODO"
+        LDFLAGS="$LDFLAGS -lm"
 	G2CONF="${G2CONF}
 		--with-prefetch
 		--sysconfdir=/etc/X11
