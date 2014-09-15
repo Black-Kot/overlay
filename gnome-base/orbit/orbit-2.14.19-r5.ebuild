@@ -82,3 +82,25 @@ src_test() {
 	# can fail in parallel, see bug #235994
 	emake -j1 check
 }
+
+multilib_src_configure(){
+ gnome2_src_configure \
+                $(use_enable pic libname-server-pic) \
+                $(use_enable static-libs static)
+}
+
+multilib_src_test() {
+	unset DISPLAY
+	# Fix bug #285706
+	unset XAUTHORITY
+	Xemake check || die "tests failed"
+}
+
+multilib_src_install() {
+	gnome2_src_install
+}
+
+multilib_src_install_all() {
+	DOCS="AUTHORS ChangeLog HACKING NEWS README TODO"
+	einstalldocs
+}
