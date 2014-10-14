@@ -8,14 +8,6 @@ SRC_URI="http://gaim.sourceforge.net/exhaustive.tar.gz
 	http://users.skynet.be/xterm/tweak-0.1.3.tar.gz
 	http://hejieshijie.net/files/Maya.tar.gz
 	http://stephane.pontier.free.fr/projects/TrillyPro.tgz
-	http://www.rit.edu/~kod1929/Aqua.tar.gz
-	http://www.rit.edu/~kod1929/Jimmac_2.tar.gz
-	http://smart-idiot.no-ip.com/smilies/smart.zip
-	http://www.geocities.com/drewd146/Hand_Drawn.zip
-	http://www.zicklepop.com/downloads/dudes.zip
-	http://www.pfarroli.de/monne/piko/icq_lite.tar.gz
-	http://www.mbpublish.de/downloads/icq-lite-4_smileys.tar.gz
-	http://kolobok.us/files/user/kolobok_for_gaim.tar.gz
 	http://files.andreineculau.com/projects/pidgin/original-smileys/pidgin-original-1.9.tgz
 	mirror://gentoo/pidgin-penguins-smileys-1.0.tar.bz2"
 
