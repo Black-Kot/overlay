@@ -11,7 +11,7 @@ SRC_URI=""
 LICENSE=""
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~sparc-fbsd ~x86-fbsd ~x86-linux"
-IUSE="embedded minimal static"
+IUSE="+alsa +asyncns bluetooth +caps dbus doc equalizer +gdbm +glib gnome gtk ipv6 jack libsamplerate lirc neon +orc oss qt4 realtime ssl systemd system-wide tcpd test +udev +webrtc-aec +X xen zeroconf"
 
 DEPEND=""
 # TODO: add Drizzle and MariaDB here
