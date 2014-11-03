@@ -26,7 +26,7 @@ RDEPEND=">=gnome-base/gnome-desktop-2.26:2
 	>=dev-libs/libgweather-2.27.90:2
 	<dev-libs/libgweather-2.90.1:2
 	dev-libs/libxml2:2
-	<=gnome-base/gconf-3.0.0[introspection?]
+	>=gnome-base/gconf-2.6.1:2[introspection?]
 	>=media-libs/libcanberra-0.23[gtk]
 	>=gnome-base/gnome-menus-2.27.92:0
 	gnome-base/librsvg:2
