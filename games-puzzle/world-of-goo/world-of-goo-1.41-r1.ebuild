@@ -21,9 +21,7 @@ RESTRICT="fetch strip"
 RDEPEND="media-libs/libsdl[sound,opengl,video]
 	media-libs/sdl-mixer[vorbis]
 	sys-libs/glibc
-	virtual/opengl
-	virtual/glu
-	>=sys-devel/gcc-3.4"
+	virtual/opengl"
 DEPEND=""
 
 S=${WORKDIR}/${MY_PN}
