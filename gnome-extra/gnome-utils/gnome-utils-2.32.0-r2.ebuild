@@ -58,8 +58,8 @@ src_prepare() {
 	epatch "${FILESDIR}/${P}-fix-uninitialized.patch"
 
 	# Provide updated icons
-	epatch "${FILESDIR}/${P}-new-icons.patch"
-	epatch "${FILESDIR}/${P}-new-icons2.patch"
+#	epatch "${FILESDIR}/${P}-new-icons.patch"
+#	epatch "${FILESDIR}/${P}-new-icons2.patch"
 
 	# Remove idiotic -D.*DISABLE_DEPRECATED cflags
 	# This method is kinda prone to breakage. Recheck carefully with next bump.
