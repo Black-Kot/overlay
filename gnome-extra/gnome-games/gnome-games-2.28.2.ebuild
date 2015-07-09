@@ -10,7 +10,7 @@ PYTHON_DEPEND="2"
 
 # make sure games is inherited first so that the gnome2
 # functions will be called if they are not overridden
-inherit games games-ggz eutils gnome2 python virtualx autotools
+inherit games eutils gnome2 python virtualx autotools
 
 DESCRIPTION="Collection of games for the GNOME desktop"
 HOMEPAGE="http://live.gnome.org/GnomeGames/"

@@ -3,7 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/x11-themes/gnome-icon-theme/gnome-icon-theme-2.30.3.ebuild,v 1.9 2012/05/05 04:10:05 jdhore Exp $
 
 GCONF_DEBUG="no"
-
+EAPI=4
 inherit gnome2
 
 DESCRIPTION="GNOME 2 default icon themes"
