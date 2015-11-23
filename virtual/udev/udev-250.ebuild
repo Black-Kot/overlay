@@ -16,5 +16,4 @@ KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~spar
 IUSE="gudev introspection +kmod selinux static-libs"
 
 DEPEND=""
-RDEPEND="kmod? ( sys-fs/eudev[${MULTILIB_USEDEP},keymap,modutils,gudev?,hwdb,introspection?,selinux?,static-libs?] )
-	!kmod? ( sys-fs/eudev[${MULTILIB_USEDEP},keymap,gudev?,hwdb,introspection?,selinux?,static-libs?] )"
+RDEPEND="sys-fs/eudev[${MULTILIB_USEDEP},hwdb,introspection?,selinux?,static-libs?]"
