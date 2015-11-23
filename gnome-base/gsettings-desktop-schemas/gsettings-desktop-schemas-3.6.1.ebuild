@@ -13,7 +13,7 @@ HOMEPAGE="http://www.gnome.org/"
 LICENSE="LGPL-2.1+"
 SLOT="0"
 IUSE="+introspection"
-KEYWORDS="sh"
+KEYWORDS="amd64 x86"
 
 RDEPEND=">=dev-libs/glib-2.31:2
 	introspection? ( >=dev-libs/gobject-introspection-1.31.0 )"
